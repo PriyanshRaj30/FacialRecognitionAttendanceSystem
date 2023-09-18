@@ -11,9 +11,7 @@ The Facial Recognition Attendance System is a Python script that uses OpenCV and
 1. [Prerequisites](#prerequisites)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Configuration](#configuration)
-5. [Contributing](#contributing)
-6. [License](#license)
+4. [Contributing](#contributing)
 
 ## Prerequisites
 
