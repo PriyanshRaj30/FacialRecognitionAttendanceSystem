@@ -1,5 +1,3 @@
-Creating a well-structured README file for your Git repository is crucial for helping others understand your project and its usage. Here's a template you can use as a starting point for your README:
-
 # Facial Recognition Attendance System
 
 ## Overview
