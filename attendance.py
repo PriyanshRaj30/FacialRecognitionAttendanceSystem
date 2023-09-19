@@ -9,11 +9,14 @@ print("Success")
 video_capture = cv2.VideoCapture(0)
 
 #load images
-my_img = face_recognition.load_image_file("faces/myimg.jpg")
-my_img_encoding = face_recognition.face_encodings(my_img)[0]
+Rock = face_recognition.load_image_file("faces/rock.jpg")
+Rock_encoding = face_recognition.face_encodings(Rock)[0]
 
-known_face_name = ["priyansh"]
-known_face_encoding = [my_img_encoding]
+Priyansh = face_recognition.load_image_file("faces/myimg.jpg")
+Priyansh_encoding = face_recognition.face_encodings(Priyansh)[0]
+
+known_face_name = ["Rock","Priyansh"]
+known_face_encoding = [Rock_encoding, Priyansh_encoding]
 
 # - list of expected faces
 student = known_face_name.copy()
@@ -36,7 +39,15 @@ while True:
         if(matches[best_match]):
             name = known_face_name[best_match]
 
-
+            if name in known_face_name:
+                font = cv2.FONT_HERSHEY_SIMPLEX
+                bottomLeftCornerOfText = (10,100)
+                fontScale = 1
+                fontColor = (186, 205, 15)
+                thickness = 2 
+                lineType = 1
+                cv2.putText(frame, name + " Present", bottomLeftCornerOfText, font, fontScale, fontColor, thickness, lineType)
+            
 
     cv2.imshow("Atendence",frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
@@ -44,4 +55,4 @@ while True:
 
 video_capture.release()
 cv2.destroyAllWindows()
-f.close()
+
