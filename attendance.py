@@ -9,14 +9,24 @@ print("Success")
 video_capture = cv2.VideoCapture(0)
 
 #load images
-Rock = face_recognition.load_image_file("faces/rock.jpg")
-Rock_encoding = face_recognition.face_encodings(Rock)[0]
+rock = face_recognition.load_image_file("faces/rock.jpg")
+rock_encoding = face_recognition.face_encodings(rock)[0]
+riyansh = face_recognition.load_image_file("faces/myimg.jpg")
+priyansh_encoding = face_recognition.face_encodings(priyansh)[0]
 
-Priyansh = face_recognition.load_image_file("faces/myimg.jpg")
-Priyansh_encoding = face_recognition.face_encodings(Priyansh)[0]
+kendal = face_recognition.load_image_file("faces/kendall_r.jpg")
+kendal_encoding = face_recognition.face_encodings(kendal)[0]
 
-known_face_name = ["Rock","Priyansh"]
-known_face_encoding = [Rock_encoding, Priyansh_encoding]
+ryan = face_recognition.load_image_file("faces/ryan_g.jpg")
+ryan_encoding = face_recognition.face_encodings(ryan)[0]
+
+salman = face_recognition.load_image_file("faces/salman.jpg")
+salman_encoding = face_recognition.face_encodings(salman)[0]
+
+known_face_name = ["rock","priyansh", "just ken", "ryan gosling", "salman(best driver)"]
+known_face_encoding = [rock_encoding, priyansh_encoding, kendal_encoding,ryan_encoding, salman_encoding]
+
+
 
 # - list of expected faces
 student = known_face_name.copy()
@@ -35,7 +45,7 @@ while True:
         matches = face_recognition.compare_faces(known_face_encoding, face_encoding)
         face_distance = face_recognition.face_distance(known_face_encoding, face_encoding)
         best_match = np.argmin(face_distance)
-
+        cv2.rectangle(frame, (left, top), (right, bottom), (0, 255, 0), 2)
         if(matches[best_match]):
             name = known_face_name[best_match]
 
